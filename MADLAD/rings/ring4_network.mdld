@@ -1,0 +1,8 @@
+o25(omega0)
+o26(omega0)
+function create_server(port: Int) : Omega = omega0
+function accept_connection(n: Int) : Omega = omega0
+function balance_load(n: Int) : Omega = best(omega0)
+flow_result = flow(omega0, omega0)
+dyn_result = dynamics(omega0)
+module Network = struct { ring = 4; default_port = 8080 }

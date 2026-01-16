@@ -1,0 +1,14 @@
+// Dynamic LaTeX - all values from MDLD code, no hardcoded interpreter strings
+Define docTitle = "Reflectology Mathematics"
+Define docAuthor = "Algernon Alleng"
+Define docDate = "January 2026"
+Define introContent = "This document demonstrates the 40 axioms of Reflectology."
+Define axiom1Text = "Omega_0 := emptyset"
+Define axiom2Text = "Omega_1 := set(emptyset)"
+Define lossText = "L(omega) := theta(Omega_omega) - C_omega"
+Define bodyContent = concat(section("Introduction", introContent), section("Axioms", concat("Axiom 1: ", axiom1Text, ". Axiom 2: ", axiom2Text, ". Loss: ", lossText)))
+Define texOpts = dict("class", "article", "classopts", "12pt", "title", docTitle, "author", docAuthor, "date", docDate, "body", bodyContent, "packages", pkgs("amsmath", "geometry"))
+Define texOutput = tex(texOpts)
+Define written = writeFile("dynamic_paper.tex", texOutput)
+Define compiled = compileTex("dynamic_paper.tex")
+Define opened = openPdf("dynamic_paper.pdf")

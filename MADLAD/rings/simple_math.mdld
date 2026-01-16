@@ -1,0 +1,4 @@
+Define a = 10
+Define b = 3
+Define c = a + b
+Compute c

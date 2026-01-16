@@ -1,0 +1,4 @@
+o1(omega0)
+Define greeting = "Hello, World!"
+Compute greeting
+o40(omega0)

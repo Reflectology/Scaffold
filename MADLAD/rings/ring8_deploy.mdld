@@ -1,0 +1,8 @@
+o38(omega0)
+o39(omega0)
+function deploy_to_azure(n: Int) : Omega = omega0
+function verify_axiom(n: Int) : Omega = omega0
+function generate_lean_proof(n: Int) : Omega = omega0
+lineage_result = lineage(omega0)
+emerge_result = emerge(omega0)
+module Deploy = struct { ring = 8 }

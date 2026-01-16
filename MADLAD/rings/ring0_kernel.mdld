@@ -1,0 +1,12 @@
+o1(omega0)
+o2(omega0)
+o3(omega0)
+o4(omega0)
+o5(omega0)
+Define initial_space = emptyset
+Define first_structure = omega0
+omega1 = T(omega0)
+omega2 = T(omega)
+function init_kernel(seed: Int) : Omega = omega0
+function get_omega(n: Int) : Omega = omega0
+module Kernel = struct { version = 1; ring = 0 }

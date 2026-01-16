@@ -1,0 +1,10 @@
+o1(omega0)
+Define first = 10
+Define second = 3
+Define added = first + second
+Define multiplied = first * second
+Define divided = first / second
+Compute added
+Compute multiplied
+Compute divided
+o40(omega0)

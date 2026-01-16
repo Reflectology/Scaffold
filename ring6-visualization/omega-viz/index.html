@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ω Configuration Space - MDLD Ring 6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="sidebar">
+            <h1>Ω Visualizer</h1>
+            <div class="section">
+                <h3>MDLD Source</h3>
+                <textarea id="mdld-input" spellcheck="false">// Ring 6 - Ω Configuration Space
+define Ω₀ := ∅
+
+// Apply axioms
+axiom_2: Ω₁ := {Ω₀}
+axiom_5: Ω := ⋃ᵢ Ωᵢ
+axiom_13: L(ω) := θ(Ω_ω) - C_ω
+axiom_21: G := θ(Ω) - C
+
+// Goodness function evaluation
+evaluate G(loss: 0.234, entropy: 1.386)
+
+// Optimize
+optimize ω* := argmin L(ω)</textarea>
+                <button id="parse-btn">Parse & Visualize</button>
+            </div>
+            <div class="section">
+                <h3>Parse Tree</h3>
+                <pre id="parse-output"></pre>
+            </div>
+            <div class="section">
+                <h3>Ω State</h3>
+                <pre id="omega-state"></pre>
+            </div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="viz-canvas"></canvas>
+            <div id="node-info" class="node-info hidden">
+                <div class="node-name"></div>
+                <div class="node-type"></div>
+                <div class="node-value"></div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+o13(omega0)
+o14(omega0)
+o15(omega0)
+o16(omega0)
+function binomial_forward(n: Int, k: Int) : Real = 1
+function binomial_inverse(n: Int, r: Int) : Int = 1
+Compute loss(omega0)
+Optimize loss(omega0)
+module Analysis = struct { ring = 3 }

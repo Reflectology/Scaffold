@@ -1,0 +1,7 @@
+o31(omega0)
+function generate_html(n: Int) : Omega = omega0
+function generate_css(theme: String) : Omega = omega0
+function generate_page(n: Int) : Omega = omega0
+trans_result = transform(omega0, omega0)
+app_result = apply(omega0, omega0)
+module WebGen = struct { ring = 7 }

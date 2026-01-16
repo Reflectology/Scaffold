@@ -1,0 +1,43 @@
+/*
+ * Reflectology Ring Interfaces (Web IDL)
+ * Defines the strict contracts for inter-ring communication via TX-RX.
+ * Rings 0-9 in logical order.
+ */
+
+// Common Data Structures
+dictionary OmegaState {
+    DOMString id;
+    double timestamp;
+    object data;
+    sequence<long> axioms_satisfied;
+    double cost;
+    double entropy;
+    long dimension;
+};
+
+dictionary MathResult {
+    double value;
+    sequence<long> axiom_trace;
+    boolean convergence;
+    double error;
+};
+
+// Ring 0: Kernel Interface (Core Axiom Engine)
+
+// Ring 1: VM Interface (Virtual Machine)
+
+// Ring 2: Compiler Interface (MADLAD Compiler)
+
+// Ring 3: Analysis Interface (Mathematical Analysis)
+
+// Ring 4: Network Interface (Networking & Routing)
+
+// Ring 5: Database Interface (Persistence Layer)
+
+// Ring 6: Extension Interface (VS Code Extension)
+
+// Ring 7: WebUI Interface (Web UI Generation)
+
+// Ring 8: Deployment Interface (Infrastructure & Proofs)
+
+// Ring 9: Docs Interface (Documentation & Introspection)

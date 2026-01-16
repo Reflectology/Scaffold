@@ -1,0 +1,9 @@
+o1(omega0)
+Define title = "MDLD: A Universal General Programming Language"
+Define intro = "This document was generated entirely from MDLD code."
+Define math = texEquation("\\Omega = \\bigcup_i \\Omega_i")
+Define body = concat(intro, "\n\n", math)
+Define doc = tex(title, body)
+Define texpath = writeFile("output.tex", doc)
+Compute texpath
+o40(omega0)

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Webscape Wanderer Example</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+                background-color: darkslateblue;
+                color: white;
+            }
+            webscape-wanderer {
+                max-width: 99.9vw;
+                max-height: 99.9vh;
+                --selected-color: lightcoral;
+            }
+        </style>
+    </head>
+    <body>
+        <webscape-wanderer edge-scale="2"></webscape-wanderer>
+        <script type="module">
+            import shapeUrl from "../data/dandelion3.obj";
+            import {
+                randomGraphData,
+                addRandomNodes,
+                addRandomEdges,
+                startWebscapeWanderer,
+            } from "webscape-wanderer";
+            window.addEventListener("DOMContentLoaded", () => {
+                // boot up the web component for all webscape-wanderer elements
+                startWebscapeWanderer();
+
+                for (let wanderer of document.querySelectorAll(
+                    "webscape-wanderer",
+                )) {
+                    const graphData = randomGraphData(30, 30);
+                    wanderer.graphData = graphData;
+                    wanderer.nodeShape = shapeUrl;
+                    setTimeout(() => {
+                        addRandomNodes(100, graphData);
+                        addRandomEdges(100, graphData);
+                        wanderer.graphData = graphData;
+                        console.log(
+                            "changing graph data",
+                            graphData.nodes.length,
+                            graphData.links.length,
+                        );
+                    }, 3000);
+                }
+            });
+        </script>
+    </body>
+</html>

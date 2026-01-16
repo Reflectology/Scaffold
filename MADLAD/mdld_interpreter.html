@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module mdld_interpreter</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">mdld_interpreter</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/bbfrmbk/Desktop/scaffold/Python/ring_python/webidl/MADLAD/mdld_interpreter.py">/Users/bbfrmbk/Desktop/scaffold/Python/ring_python/webidl/MADLAD/mdld_interpreter.py</a></td></tr></table>
+    <p><span class="code">MDLD&nbsp;Interpreter&nbsp;using&nbsp;the&nbsp;Visitor&nbsp;pattern.<br>
+This&nbsp;EXECUTES&nbsp;the&nbsp;parsed&nbsp;.mdld&nbsp;files.<br>
+With&nbsp;--proof&nbsp;flag,&nbsp;generates&nbsp;Metamath&nbsp;proof&nbsp;certificates.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="mdld_interpreter.html#MetamathProofGenerator">MetamathProofGenerator</a>
+</dt><dt class="heading-text"><a href="mdld_interpreter.html#OmegaState">OmegaState</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="mdldVisitor.html#mdldVisitor">mdldVisitor.mdldVisitor</a>(<a href="antlr4.tree.Tree.html#ParseTreeVisitor">antlr4.tree.Tree.ParseTreeVisitor</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="mdld_interpreter.html#MdldInterpreter">MdldInterpreter</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="MdldInterpreter">class <strong>MdldInterpreter</strong></a>(<a href="mdldVisitor.html#mdldVisitor">mdldVisitor.mdldVisitor</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#MdldInterpreter">MdldInterpreter</a>(proof_mode=False)<br>
+&nbsp;<br>
+Visitor&nbsp;that&nbsp;actually&nbsp;EXECUTES&nbsp;the&nbsp;MDLD&nbsp;code.<br>
+Each&nbsp;visit&nbsp;method&nbsp;returns&nbsp;a&nbsp;value.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="mdld_interpreter.html#MdldInterpreter">MdldInterpreter</a></dd>
+<dd><a href="mdldVisitor.html#mdldVisitor">mdldVisitor.mdldVisitor</a></dd>
+<dd><a href="antlr4.tree.Tree.html#ParseTreeVisitor">antlr4.tree.Tree.ParseTreeVisitor</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="MdldInterpreter-__init__"><strong>__init__</strong></a>(self, proof_mode=False)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-builtin_Q2"><strong>builtin_Q2</strong></a>(self, n)</dt><dd><span class="code">Powerful&nbsp;part:&nbsp;product&nbsp;of&nbsp;p^k&nbsp;where&nbsp;k&nbsp;&gt;=&nbsp;2</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-builtin_compileTex"><strong>builtin_compileTex</strong></a>(self, texpath)</dt><dd><span class="code">Compile&nbsp;LaTeX&nbsp;to&nbsp;PDF&nbsp;using&nbsp;pdflatex</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-builtin_consecutive_product"><strong>builtin_consecutive_product</strong></a>(self, n, ell)</dt><dd><span class="code">n(n+1)...(n+ell)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-builtin_factorize"><strong>builtin_factorize</strong></a>(self, n)</dt><dd><span class="code">#&nbsp;Built-in&nbsp;math&nbsp;implementations</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-builtin_html"><strong>builtin_html</strong></a>(self, options=None)</dt><dd><span class="code">Generate&nbsp;HTML&nbsp;document&nbsp;from&nbsp;options&nbsp;dict&nbsp;-&nbsp;NO&nbsp;hardcoded&nbsp;values</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-builtin_openBrowser"><strong>builtin_openBrowser</strong></a>(self, path)</dt><dd><span class="code">Open&nbsp;a&nbsp;file&nbsp;in&nbsp;the&nbsp;default&nbsp;browser</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-builtin_openPdf"><strong>builtin_openPdf</strong></a>(self, path)</dt><dd><span class="code">Open&nbsp;a&nbsp;PDF&nbsp;in&nbsp;the&nbsp;default&nbsp;viewer</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-builtin_tex"><strong>builtin_tex</strong></a>(self, options=None)</dt><dd><span class="code">Generate&nbsp;LaTeX&nbsp;document&nbsp;from&nbsp;options&nbsp;dict&nbsp;-&nbsp;NO&nbsp;hardcoded&nbsp;values</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-builtin_writeFile"><strong>builtin_writeFile</strong></a>(self, path, content)</dt><dd><span class="code">Write&nbsp;content&nbsp;to&nbsp;a&nbsp;file</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-execute_axiom"><strong>execute_axiom</strong></a>(self, num, arg)</dt><dd><span class="code">Execute&nbsp;one&nbsp;of&nbsp;the&nbsp;40&nbsp;axioms</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-log"><strong>log</strong></a>(self, msg)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitAxiomStmt"><strong>visitAxiomStmt</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitCausalExpr"><strong>visitCausalExpr</strong></a>(self, ctx)</dt><dd><span class="code">o35:&nbsp;Causality&nbsp;-&nbsp;Ω(t)&nbsp;=&nbsp;C(Ω(t-1))</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitComposeExpr"><strong>visitComposeExpr</strong></a>(self, ctx)</dt><dd><span class="code">o11:&nbsp;Complex&nbsp;Associativity&nbsp;-&nbsp;composition</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitComputeStmt"><strong>visitComputeStmt</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitConfigSpaceExpr"><strong>visitConfigSpaceExpr</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitConvergeExpr"><strong>visitConvergeExpr</strong></a>(self, ctx)</dt><dd><span class="code">o15:&nbsp;Reflective&nbsp;Convergence&nbsp;-&nbsp;lim&nbsp;θ_n(ω)&nbsp;-&nbsp;C_n</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitDefineStmt"><strong>visitDefineStmt</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitDimensionExpr"><strong>visitDimensionExpr</strong></a>(self, ctx)</dt><dd><span class="code">o20:&nbsp;Dimensional&nbsp;Consistency</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitDivergeExpr"><strong>visitDivergeExpr</strong></a>(self, ctx)</dt><dd><span class="code">o24:&nbsp;Chaotic&nbsp;Creativity&nbsp;-&nbsp;diverge</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitDocument"><strong>visitDocument</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitDualExpr"><strong>visitDualExpr</strong></a>(self, ctx)</dt><dd><span class="code">o40:&nbsp;Conjugate&nbsp;Duality&nbsp;-&nbsp;ω†&nbsp;:=&nbsp;C(ω)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitDualSymmetryStmt"><strong>visitDualSymmetryStmt</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitDynamicsExpr"><strong>visitDynamicsExpr</strong></a>(self, ctx)</dt><dd><span class="code">o26:&nbsp;Dynamical&nbsp;System&nbsp;-&nbsp;dω/dt&nbsp;=&nbsp;f(ω)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitEmergeExpr"><strong>visitEmergeExpr</strong></a>(self, ctx)</dt><dd><span class="code">o39:&nbsp;Internal&nbsp;Emergence</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitEnergyExpr"><strong>visitEnergyExpr</strong></a>(self, ctx)</dt><dd><span class="code">o23:&nbsp;Energy&nbsp;Efficiency&nbsp;-&nbsp;E(Ω)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitEntropyExpr"><strong>visitEntropyExpr</strong></a>(self, ctx)</dt><dd><span class="code">o16:&nbsp;Entropy/Normalization&nbsp;-&nbsp;H(Ω)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitExportStmt"><strong>visitExportStmt</strong></a>(self, ctx)</dt><dd><span class="code">Export&nbsp;to&nbsp;format</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitExpr"><strong>visitExpr</strong></a>(self, ctx)</dt><dd><span class="code">Handle&nbsp;expr:&nbsp;expr&nbsp;PLUS&nbsp;term&nbsp;|&nbsp;expr&nbsp;MINUS&nbsp;term&nbsp;|&nbsp;term</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFactor"><strong>visitFactor</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFfiCall"><strong>visitFfiCall</strong></a>(self, ctx)</dt><dd><span class="code">FFI&nbsp;call</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFluxExpr"><strong>visitFluxExpr</strong></a>(self, ctx)</dt><dd><span class="code">o34:&nbsp;Non-Equilibrium&nbsp;Dynamics</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFoldExpr"><strong>visitFoldExpr</strong></a>(self, ctx)</dt><dd><span class="code">fold(collection)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitForallExpr"><strong>visitForallExpr</strong></a>(self, ctx)</dt><dd><span class="code">forall&nbsp;x&nbsp;:&nbsp;formula</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFuncCall"><strong>visitFuncCall</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFuncDecl"><strong>visitFuncDecl</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitGoodnessExpr"><strong>visitGoodnessExpr</strong></a>(self, ctx)</dt><dd><span class="code">o21:&nbsp;Goodness&nbsp;Function&nbsp;-&nbsp;G&nbsp;:=&nbsp;θ(Ω)&nbsp;-&nbsp;C</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitGradientExpr"><strong>visitGradientExpr</strong></a>(self, ctx)</dt><dd><span class="code">o25:&nbsp;Gradient&nbsp;Flow&nbsp;-&nbsp;dω/dt&nbsp;=&nbsp;-∇L(ω)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitHyperrealExpr"><strong>visitHyperrealExpr</strong></a>(self, ctx)</dt><dd><span class="code">o19:&nbsp;Hyperreal&nbsp;Extension&nbsp;-&nbsp;ω&nbsp;+&nbsp;ε</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitIfExpr"><strong>visitIfExpr</strong></a>(self, ctx)</dt><dd><span class="code">if&nbsp;expr&nbsp;then&nbsp;expr&nbsp;else&nbsp;expr</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitImportStmt"><strong>visitImportStmt</strong></a>(self, ctx)</dt><dd><span class="code">Import&nbsp;from&nbsp;format</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitIoDecl"><strong>visitIoDecl</strong></a>(self, ctx)</dt><dd><span class="code">IO&nbsp;declaration</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitIoExpr"><strong>visitIoExpr</strong></a>(self, ctx)</dt><dd><span class="code">IO&nbsp;expression</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitIterateExpr"><strong>visitIterateExpr</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitLambdaExpr"><strong>visitLambdaExpr</strong></a>(self, ctx)</dt><dd><span class="code">Lambda&nbsp;abstraction</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitLetExpr"><strong>visitLetExpr</strong></a>(self, ctx)</dt><dd><span class="code">o12:&nbsp;Contextual&nbsp;Monoid&nbsp;-&nbsp;let...in&nbsp;scoped&nbsp;bindings</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitLetRecExpr"><strong>visitLetRecExpr</strong></a>(self, ctx)</dt><dd><span class="code">o27/o33:&nbsp;Recursive&nbsp;bindings&nbsp;-&nbsp;let&nbsp;rec</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitLineageExpr"><strong>visitLineageExpr</strong></a>(self, ctx)</dt><dd><span class="code">o38:&nbsp;Recursive&nbsp;Lineage</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitLossExpr"><strong>visitLossExpr</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitMapExpr"><strong>visitMapExpr</strong></a>(self, ctx)</dt><dd><span class="code">map(collection,&nbsp;function)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitMatchExpr"><strong>visitMatchExpr</strong></a>(self, ctx)</dt><dd><span class="code">o14:&nbsp;Canonical&nbsp;Selection&nbsp;-&nbsp;pattern&nbsp;matching</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitMatrixLiteral"><strong>visitMatrixLiteral</strong></a>(self, ctx)</dt><dd><span class="code">Matrix&nbsp;literal&nbsp;[rows]</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitMatrixMul"><strong>visitMatrixMul</strong></a>(self, ctx)</dt><dd><span class="code">Matrix&nbsp;multiplication&nbsp;@@</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitModuleDecl"><strong>visitModuleDecl</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitNonlinearExpr"><strong>visitNonlinearExpr</strong></a>(self, ctx)</dt><dd><span class="code">o18:&nbsp;Nonlinear&nbsp;Logic&nbsp;-&nbsp;ω'&nbsp;:=&nbsp;nonlinear(ω)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitOmega0"><strong>visitOmega0</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitOptimizeExpr"><strong>visitOptimizeExpr</strong></a>(self, ctx)</dt><dd><span class="code">o37:&nbsp;Student&nbsp;Supremacy&nbsp;-&nbsp;optimize</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitOptimizeStmt"><strong>visitOptimizeStmt</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitOrbitExpr"><strong>visitOrbitExpr</strong></a>(self, ctx)</dt><dd><span class="code">o7:&nbsp;Symmetry&nbsp;Reduction&nbsp;-&nbsp;Ω&nbsp;/&nbsp;G</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPathExpr"><strong>visitPathExpr</strong></a>(self, ctx)</dt><dd><span class="code">o32:&nbsp;Path&nbsp;Dependence&nbsp;-&nbsp;Ω(t)&nbsp;=&nbsp;f(T(t),&nbsp;Ω₀)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPatternMatchStmt"><strong>visitPatternMatchStmt</strong></a>(self, ctx)</dt><dd><span class="code">NLP&nbsp;pattern&nbsp;matching</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPipeExpr"><strong>visitPipeExpr</strong></a>(self, ctx)</dt><dd><span class="code">expr&nbsp;|&gt;&nbsp;f</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPreserveExpr"><strong>visitPreserveExpr</strong></a>(self, ctx)</dt><dd><span class="code">o22:&nbsp;Information&nbsp;Preservation&nbsp;-&nbsp;I(Ω)&nbsp;=&nbsp;I(T(Ω))</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPrimary"><strong>visitPrimary</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitProbExpr"><strong>visitProbExpr</strong></a>(self, ctx)</dt><dd><span class="code">o28:&nbsp;Probabilistic&nbsp;-&nbsp;P(ω'&nbsp;|&nbsp;ω)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitQuotientExpr"><strong>visitQuotientExpr</strong></a>(self, ctx)</dt><dd><span class="code">o6:&nbsp;Redundancy&nbsp;Reduction&nbsp;-&nbsp;Ω&nbsp;/&nbsp;~</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitRaiseExpr"><strong>visitRaiseExpr</strong></a>(self, ctx)</dt><dd><span class="code">o8:&nbsp;Symmetry&nbsp;Breaking&nbsp;-&nbsp;raise&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitRecordExpr"><strong>visitRecordExpr</strong></a>(self, ctx)</dt><dd><span class="code">Record/<a href="builtins.html#object">object</a>&nbsp;literal</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitRegexMatchStmt"><strong>visitRegexMatchStmt</strong></a>(self, ctx)</dt><dd><span class="code">Regex&nbsp;matching</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitRegexReplaceStmt"><strong>visitRegexReplaceStmt</strong></a>(self, ctx)</dt><dd><span class="code">Regex&nbsp;replace</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitSetComprehension"><strong>visitSetComprehension</strong></a>(self, ctx)</dt><dd><span class="code">Set&nbsp;comprehension&nbsp;{x&nbsp;|&nbsp;P(x)}</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitSimplifyExpr"><strong>visitSimplifyExpr</strong></a>(self, ctx)</dt><dd><span class="code">o9:&nbsp;Complexity&nbsp;Reduction&nbsp;-&nbsp;C(Ω)&nbsp;≥&nbsp;C(Ω')</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitStabilizeExpr"><strong>visitStabilizeExpr</strong></a>(self, ctx)</dt><dd><span class="code">o30:&nbsp;Self-Regulation&nbsp;-&nbsp;stabilize</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitStatementList"><strong>visitStatementList</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitStepExpr"><strong>visitStepExpr</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTerm"><strong>visitTerm</strong></a>(self, ctx)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitThetaExpr"><strong>visitThetaExpr</strong></a>(self, ctx)</dt><dd><span class="code">Reflectology&nbsp;theta&nbsp;function</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTransformOp"><strong>visitTransformOp</strong></a>(self, ctx)</dt><dd><span class="code">o31:&nbsp;Base&nbsp;Transform&nbsp;-&nbsp;transform(omega,&nbsp;f)</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTryExpr"><strong>visitTryExpr</strong></a>(self, ctx)</dt><dd><span class="code">o17:&nbsp;Self-Correction&nbsp;-&nbsp;try...with</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTupleExpr"><strong>visitTupleExpr</strong></a>(self, ctx)</dt><dd><span class="code">Tuple&nbsp;literal</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="mdldVisitor.html#mdldVisitor">mdldVisitor.mdldVisitor</a>:<br>
+<dl><dt><a name="MdldInterpreter-visitAbiBody"><strong>visitAbiBody</strong></a>(self, ctx: mdldParser.AbiBodyContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#abiBody.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitAbiDecl"><strong>visitAbiDecl</strong></a>(self, ctx: mdldParser.AbiDeclContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#abiDecl.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitAbiMember"><strong>visitAbiMember</strong></a>(self, ctx: mdldParser.AbiMemberContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#abiMember.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitApiBody"><strong>visitApiBody</strong></a>(self, ctx: mdldParser.ApiBodyContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#apiBody.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitApiDecl"><strong>visitApiDecl</strong></a>(self, ctx: mdldParser.ApiDeclContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#apiDecl.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitApiEndpoint"><strong>visitApiEndpoint</strong></a>(self, ctx: mdldParser.ApiEndpointContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#apiEndpoint.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitArgList"><strong>visitArgList</strong></a>(self, ctx: mdldParser.ArgListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#argList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitAssignment"><strong>visitAssignment</strong></a>(self, ctx: mdldParser.AssignmentContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#assignment.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitAtom"><strong>visitAtom</strong></a>(self, ctx: mdldParser.AtomContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#atom.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitAxiomKeyword"><strong>visitAxiomKeyword</strong></a>(self, ctx: mdldParser.AxiomKeywordContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#axiomKeyword.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitBinder"><strong>visitBinder</strong></a>(self, ctx: mdldParser.BinderContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#binder.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitBinderList"><strong>visitBinderList</strong></a>(self, ctx: mdldParser.BinderListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#binderList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitComment"><strong>visitComment</strong></a>(self, ctx: mdldParser.CommentContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#comment.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitConfigSpaceDecl"><strong>visitConfigSpaceDecl</strong></a>(self, ctx: mdldParser.ConfigSpaceDeclContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#configSpaceDecl.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitConjunction"><strong>visitConjunction</strong></a>(self, ctx: mdldParser.ConjunctionContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#conjunction.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitCostExpr"><strong>visitCostExpr</strong></a>(self, ctx: mdldParser.CostExprContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#costExpr.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitDisjunction"><strong>visitDisjunction</strong></a>(self, ctx: mdldParser.DisjunctionContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#disjunction.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitDoBlock"><strong>visitDoBlock</strong></a>(self, ctx: mdldParser.DoBlockContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#doBlock.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitElifChain"><strong>visitElifChain</strong></a>(self, ctx: mdldParser.ElifChainContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#elifChain.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitElifClause"><strong>visitElifClause</strong></a>(self, ctx: mdldParser.ElifClauseContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#elifClause.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitEquation"><strong>visitEquation</strong></a>(self, ctx: mdldParser.EquationContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#equation.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitEquivRel"><strong>visitEquivRel</strong></a>(self, ctx: mdldParser.EquivRelContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#equivRel.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitEvaluateStmt"><strong>visitEvaluateStmt</strong></a>(self, ctx: mdldParser.EvaluateStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#evaluateStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitExprList"><strong>visitExprList</strong></a>(self, ctx: mdldParser.ExprListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#exprList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitField"><strong>visitField</strong></a>(self, ctx: mdldParser.FieldContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#field.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFieldDecl"><strong>visitFieldDecl</strong></a>(self, ctx: mdldParser.FieldDeclContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#fieldDecl.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFieldDeclList"><strong>visitFieldDeclList</strong></a>(self, ctx: mdldParser.FieldDeclListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#fieldDeclList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFieldList"><strong>visitFieldList</strong></a>(self, ctx: mdldParser.FieldListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#fieldList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFieldPattern"><strong>visitFieldPattern</strong></a>(self, ctx: mdldParser.FieldPatternContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#fieldPattern.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFieldPatternList"><strong>visitFieldPatternList</strong></a>(self, ctx: mdldParser.FieldPatternListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#fieldPatternList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFormula"><strong>visitFormula</strong></a>(self, ctx: mdldParser.FormulaContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#formula.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitFunctorApp"><strong>visitFunctorApp</strong></a>(self, ctx: mdldParser.FunctorAppContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#functorApp.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitGroupExpr"><strong>visitGroupExpr</strong></a>(self, ctx: mdldParser.GroupExprContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#groupExpr.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitGuardOpt"><strong>visitGuardOpt</strong></a>(self, ctx: mdldParser.GuardOptContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#guardOpt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitHttpMethod"><strong>visitHttpMethod</strong></a>(self, ctx: mdldParser.HttpMethodContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#httpMethod.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitImplication"><strong>visitImplication</strong></a>(self, ctx: mdldParser.ImplicationContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#implication.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitInequality"><strong>visitInequality</strong></a>(self, ctx: mdldParser.InequalityContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#inequality.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitIoStatement"><strong>visitIoStatement</strong></a>(self, ctx: mdldParser.IoStatementContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#ioStatement.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitIoStatementList"><strong>visitIoStatementList</strong></a>(self, ctx: mdldParser.IoStatementListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#ioStatementList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitIreStmt"><strong>visitIreStmt</strong></a>(self, ctx: mdldParser.IreStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#ireStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitLetBinding"><strong>visitLetBinding</strong></a>(self, ctx: mdldParser.LetBindingContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#letBinding.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitLimitTarget"><strong>visitLimitTarget</strong></a>(self, ctx: mdldParser.LimitTargetContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#limitTarget.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitLvalue"><strong>visitLvalue</strong></a>(self, ctx: mdldParser.LvalueContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#lvalue.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitLvalueSuffix"><strong>visitLvalueSuffix</strong></a>(self, ctx: mdldParser.LvalueSuffixContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#lvalueSuffix.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitMatchCase"><strong>visitMatchCase</strong></a>(self, ctx: mdldParser.MatchCaseContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#matchCase.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitMatchCases"><strong>visitMatchCases</strong></a>(self, ctx: mdldParser.MatchCasesContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#matchCases.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitMatrixAccess"><strong>visitMatrixAccess</strong></a>(self, ctx: mdldParser.MatrixAccessContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#matrixAccess.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitMatrixOperation"><strong>visitMatrixOperation</strong></a>(self, ctx: mdldParser.MatrixOperationContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#matrixOperation.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitMatrixRow"><strong>visitMatrixRow</strong></a>(self, ctx: mdldParser.MatrixRowContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#matrixRow.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitMatrixRows"><strong>visitMatrixRows</strong></a>(self, ctx: mdldParser.MatrixRowsContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#matrixRows.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitMatrixStmt"><strong>visitMatrixStmt</strong></a>(self, ctx: mdldParser.MatrixStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#matrixStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitModuleExpr"><strong>visitModuleExpr</strong></a>(self, ctx: mdldParser.ModuleExprContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#moduleExpr.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitModuleType"><strong>visitModuleType</strong></a>(self, ctx: mdldParser.ModuleTypeContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#moduleType.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitNegation"><strong>visitNegation</strong></a>(self, ctx: mdldParser.NegationContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#negation.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitNlpProcessStmt"><strong>visitNlpProcessStmt</strong></a>(self, ctx: mdldParser.NlpProcessStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#nlpProcessStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitNlpStmt"><strong>visitNlpStmt</strong></a>(self, ctx: mdldParser.NlpStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#nlpStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitNlpTransformStmt"><strong>visitNlpTransformStmt</strong></a>(self, ctx: mdldParser.NlpTransformStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#nlpTransformStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitOmegaFull"><strong>visitOmegaFull</strong></a>(self, ctx: mdldParser.OmegaFullContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#omegaFull.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitOmegaList"><strong>visitOmegaList</strong></a>(self, ctx: mdldParser.OmegaListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#omegaList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitOmegaN"><strong>visitOmegaN</strong></a>(self, ctx: mdldParser.OmegaNContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#omegaN.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitOpenStmt"><strong>visitOpenStmt</strong></a>(self, ctx: mdldParser.OpenStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#openStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitParam"><strong>visitParam</strong></a>(self, ctx: mdldParser.ParamContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#param.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitParamList"><strong>visitParamList</strong></a>(self, ctx: mdldParser.ParamListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#paramList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitParamListOpt"><strong>visitParamListOpt</strong></a>(self, ctx: mdldParser.ParamListOptContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#paramListOpt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPattern"><strong>visitPattern</strong></a>(self, ctx: mdldParser.PatternContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#pattern.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPatternAtom"><strong>visitPatternAtom</strong></a>(self, ctx: mdldParser.PatternAtomContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#patternAtom.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPatternList"><strong>visitPatternList</strong></a>(self, ctx: mdldParser.PatternListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#patternList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPatternSuffix"><strong>visitPatternSuffix</strong></a>(self, ctx: mdldParser.PatternSuffixContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#patternSuffix.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPostfix"><strong>visitPostfix</strong></a>(self, ctx: mdldParser.PostfixContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#postfix.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPostfixOp"><strong>visitPostfixOp</strong></a>(self, ctx: mdldParser.PostfixOpContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#postfixOp.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitPredicate"><strong>visitPredicate</strong></a>(self, ctx: mdldParser.PredicateContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#predicate.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitProbability"><strong>visitProbability</strong></a>(self, ctx: mdldParser.ProbabilityContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#probability.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitQuantified"><strong>visitQuantified</strong></a>(self, ctx: mdldParser.QuantifiedContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#quantified.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitQuantifier"><strong>visitQuantifier</strong></a>(self, ctx: mdldParser.QuantifierContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#quantifier.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitRecBinding"><strong>visitRecBinding</strong></a>(self, ctx: mdldParser.RecBindingContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#recBinding.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitRecBindingList"><strong>visitRecBindingList</strong></a>(self, ctx: mdldParser.RecBindingListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#recBindingList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitRecordDecl"><strong>visitRecordDecl</strong></a>(self, ctx: mdldParser.RecordDeclContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#recordDecl.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitReduceStmt"><strong>visitReduceStmt</strong></a>(self, ctx: mdldParser.ReduceStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#reduceStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitReflectologyStmt"><strong>visitReflectologyStmt</strong></a>(self, ctx: mdldParser.ReflectologyStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#reflectologyStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitRegexExtractStmt"><strong>visitRegexExtractStmt</strong></a>(self, ctx: mdldParser.RegexExtractStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#regexExtractStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitRegexSplitStmt"><strong>visitRegexSplitStmt</strong></a>(self, ctx: mdldParser.RegexSplitStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#regexSplitStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitRegexStmt"><strong>visitRegexStmt</strong></a>(self, ctx: mdldParser.RegexStmtContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#regexStmt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitRelation"><strong>visitRelation</strong></a>(self, ctx: mdldParser.RelationContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#relation.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitSep"><strong>visitSep</strong></a>(self, ctx: mdldParser.SepContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#sep.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitSigItem"><strong>visitSigItem</strong></a>(self, ctx: mdldParser.SigItemContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#sigItem.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitSigItemList"><strong>visitSigItemList</strong></a>(self, ctx: mdldParser.SigItemListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#sigItemList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitStatement"><strong>visitStatement</strong></a>(self, ctx: mdldParser.StatementContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#statement.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitSubscript"><strong>visitSubscript</strong></a>(self, ctx: mdldParser.SubscriptContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#subscript.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTransformExpr"><strong>visitTransformExpr</strong></a>(self, ctx: mdldParser.TransformExprContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#transformExpr.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTypeArgsOpt"><strong>visitTypeArgsOpt</strong></a>(self, ctx: mdldParser.TypeArgsOptContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#typeArgsOpt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTypeDecl"><strong>visitTypeDecl</strong></a>(self, ctx: mdldParser.TypeDeclContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#typeDecl.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTypeExpr"><strong>visitTypeExpr</strong></a>(self, ctx: mdldParser.TypeExprContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#typeExpr.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTypeList"><strong>visitTypeList</strong></a>(self, ctx: mdldParser.TypeListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#typeList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTypeParamList"><strong>visitTypeParamList</strong></a>(self, ctx: mdldParser.TypeParamListContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#typeParamList.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTypeParamsOpt"><strong>visitTypeParamsOpt</strong></a>(self, ctx: mdldParser.TypeParamsOptContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#typeParamsOpt.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTypeVar"><strong>visitTypeVar</strong></a>(self, ctx: mdldParser.TypeVarContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#typeVar.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitVariantBody"><strong>visitVariantBody</strong></a>(self, ctx: mdldParser.VariantBodyContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#variantBody.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitVariantCase"><strong>visitVariantCase</strong></a>(self, ctx: mdldParser.VariantCaseContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#variantCase.</span></dd></dl>
+
+<dl><dt><a name="MdldInterpreter-visitVariantDecl"><strong>visitVariantDecl</strong></a>(self, ctx: mdldParser.VariantDeclContext)</dt><dd><span class="code">#&nbsp;Visit&nbsp;a&nbsp;parse&nbsp;tree&nbsp;produced&nbsp;by&nbsp;mdldParser#variantDecl.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="antlr4.tree.Tree.html#ParseTreeVisitor">antlr4.tree.Tree.ParseTreeVisitor</a>:<br>
+<dl><dt><a name="MdldInterpreter-aggregateResult"><strong>aggregateResult</strong></a>(self, aggregate, nextResult)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-defaultResult"><strong>defaultResult</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-shouldVisitNextChild"><strong>shouldVisitNextChild</strong></a>(self, node, currentResult)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visit"><strong>visit</strong></a>(self, tree)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitChildren"><strong>visitChildren</strong></a>(self, node)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitErrorNode"><strong>visitErrorNode</strong></a>(self, node)</dt></dl>
+
+<dl><dt><a name="MdldInterpreter-visitTerminal"><strong>visitTerminal</strong></a>(self, node)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="antlr4.tree.Tree.html#ParseTreeVisitor">antlr4.tree.Tree.ParseTreeVisitor</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="MetamathProofGenerator">class <strong>MetamathProofGenerator</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Generates&nbsp;Metamath&nbsp;proof&nbsp;certificates&nbsp;from&nbsp;MDLD&nbsp;execution<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="MetamathProofGenerator-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="MetamathProofGenerator-add_constant"><strong>add_constant</strong></a>(self, name, value)</dt><dd><span class="code">Define&nbsp;a&nbsp;constant</span></dd></dl>
+
+<dl><dt><a name="MetamathProofGenerator-axiom_step"><strong>axiom_step</strong></a>(self, axiom_num, arg, result)</dt><dd><span class="code">Generate&nbsp;proof&nbsp;step&nbsp;for&nbsp;axiom&nbsp;application</span></dd></dl>
+
+<dl><dt><a name="MetamathProofGenerator-compute_step"><strong>compute_step</strong></a>(self, func_name, args, result)</dt><dd><span class="code">Generate&nbsp;proof&nbsp;step&nbsp;for&nbsp;computation</span></dd></dl>
+
+<dl><dt><a name="MetamathProofGenerator-define_step"><strong>define_step</strong></a>(self, name, value)</dt><dd><span class="code">Generate&nbsp;definition</span></dd></dl>
+
+<dl><dt><a name="MetamathProofGenerator-generate"><strong>generate</strong></a>(self, filename)</dt><dd><span class="code">Generate&nbsp;complete&nbsp;proof&nbsp;file</span></dd></dl>
+
+<dl><dt><a name="MetamathProofGenerator-header"><strong>header</strong></a>(self, filename)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="OmegaState">class <strong>OmegaState</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#OmegaState">OmegaState</a>(data=None,&nbsp;level=0)<br>
+&nbsp;<br>
+Configuration&nbsp;space&nbsp;state&nbsp;-&nbsp;the&nbsp;Ω&nbsp;in&nbsp;reflectology<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="OmegaState-__init__"><strong>__init__</strong></a>(self, data=None, level=0)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="OmegaState-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="OmegaState-to_mm"><strong>to_mm</strong></a>(self)</dt><dd><span class="code">Convert&nbsp;to&nbsp;Metamath&nbsp;notation</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-run_file"><strong>run_file</strong></a>(filepath, proof_mode=False)</dt><dd><span class="code">Parse&nbsp;and&nbsp;execute&nbsp;a&nbsp;.mdld&nbsp;file</span></dd></dl>
+</td></tr></table>
+</body></html>

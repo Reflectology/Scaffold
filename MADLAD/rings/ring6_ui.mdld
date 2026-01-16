@@ -1,0 +1,7 @@
+o24(omega0)
+function render_omega(n: Int) : Omega = omega0
+function visualize_transform(n: Int) : Omega = omega0
+function handle_input(event: String) : Omega = step(omega0)
+creative_result = creative(omega0)
+explore_result = explore(omega0)
+module UI = struct { ring = 6 }

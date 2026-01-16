@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Webscape Wanderer Example</title>
+        <style>
+            html {
+                scroll-snap-type: y mandatory;
+            }
+            body {
+                display: flex;
+                flex-direction: column;
+                /* margin: 10vw; */
+                padding: 0;
+                margin: 0;
+                background-color: darkslateblue;
+                color: white;
+                /* overflow: hidden; */
+            }
+            webscape-wanderer {
+                margin: 5vh 9vw;
+                border: dotted #aaa 1px;
+                max-width: 79vw;
+                max-height: 90vh;
+                --selected-color: lightcoral;
+                scroll-snap-align: center;
+                height: 100vh;
+            }
+            webscape-wanderer::first() {
+                scroll-snap-align: top;
+            }
+        </style>
+    </head>
+    <body>
+        <script type="module">
+            import { startWebscapeWanderer } from "webscape-wanderer";
+            window.addEventListener("DOMContentLoaded", () => {
+                // boot up the web component for all webscape-wanderer elements
+                startWebscapeWanderer();
+            });
+        </script>
+
+        <webscape-wanderer
+            id="small-random"
+            edge-scale="3"
+            node-shape="sphere"
+        ></webscape-wanderer>
+
+        <script type="module">
+            import { randomGraphData } from "webscape-wanderer";
+
+            window.addEventListener("DOMContentLoaded", () => {
+                const smallRandomWanderer =
+                    document.querySelector("#small-random");
+                const graphData = randomGraphData(7, 9); // 7 nodes, 9 edges
+                smallRandomWanderer.graphData = graphData;
+            });
+        </script>
+
+        <webscape-wanderer
+            id="dynamic-shape"
+            edge-scale="3"
+            node-shape="sphere"
+        ></webscape-wanderer>
+
+        <script type="module">
+            import { randomGraphData } from "webscape-wanderer";
+
+            window.addEventListener("DOMContentLoaded", () => {
+                const dynamicShapeWanderer =
+                    document.querySelector("#dynamic-shape");
+                const graphData = randomGraphData(15, 20); // 15 nodes, 20 edges
+                dynamicShapeWanderer.graphData = graphData;
+                dynamicShapeWanderer.onTap(function (evt) {
+                    this.setAttribute("selected", evt.detail?.info?.navId);
+                    // this.focus = evt.detail?.info?.navId;
+                });
+
+                const shapes = ["sphere", "cone", "box", "icosahedron"];
+                let currentShapeIndex = 0;
+                setInterval(() => {
+                    currentShapeIndex = (currentShapeIndex + 1) % shapes.length;
+                    dynamicShapeWanderer.setAttribute(
+                        "node-shape",
+                        shapes[currentShapeIndex],
+                    );
+                }, 3000); // Change shape every 3 seconds
+            });
+        </script>
+
+        <webscape-wanderer
+            id="large-dynamic"
+            edge-scale="1"
+            focus="node-2"
+            selected="node-2"
+            node-shape="box"
+        ></webscape-wanderer>
+
+        <script type="module">
+            import {
+                randomGraphData,
+                addRandomNodes,
+                addRandomEdges,
+            } from "webscape-wanderer";
+
+            window.addEventListener("DOMContentLoaded", () => {
+                const largeDynamicWanderer =
+                    document.querySelector("#large-dynamic");
+                let graphData = randomGraphData(50, 100); // Start with 50 nodes and 100 edges
+                largeDynamicWanderer.graphData = graphData;
+
+                setInterval(() => {
+                    addRandomNodes(5, graphData); // Add 10 new nodes
+                    addRandomEdges(10, graphData); // Add 20 new edges
+                    largeDynamicWanderer.graphData = { ...graphData }; // Trigger update
+                    console.log(
+                        "Updated graph data:",
+                        graphData.nodes.length,
+                        "nodes,",
+                        graphData.links.length,
+                        "edges",
+                    );
+                }, 8000); // Add random nodes/edges every few seconds
+            });
+        </script>
+
+        <webscape-wanderer
+            id="focus-selection-decoupled"
+            edge-scale="1"
+            selected="node-1"
+            node-shape="cone"
+        ></webscape-wanderer>
+
+        <script type="module">
+            import { dataFromGraph } from "webscape-wanderer";
+            window.addEventListener("DOMContentLoaded", () => {
+                const focusSelectionDecoupledWanderer = document.querySelector(
+                    "#focus-selection-decoupled",
+                );
+                const graphData = dataFromGraph({
+                    nodes: [
+                        { id: 1 },
+                        { id: 2 },
+                        { id: 3 },
+                        { id: 4 },
+                        { id: 5 },
+                        { id: 6 },
+                    ],
+                    links: [
+                        { source: 1, target: 2 },
+                        { source: 1, target: 3 },
+                        { source: 1, target: 4 },
+                        { source: 5, target: 1 },
+                        { source: 6, target: 1 },
+                        { source: 2, target: 6 },
+                        { source: 3, target: 6 },
+                    ],
+                });
+                focusSelectionDecoupledWanderer.graphData = graphData;
+
+                const neighbors = [2, 3, 4, 5, 6];
+
+                let currentIndex = 0;
+                setInterval(() => {
+                    const nextNeighbor = neighbors[currentIndex];
+                    focusSelectionDecoupledWanderer.focus = `node-${nextNeighbor}`;
+                    currentIndex = (currentIndex + 1) % neighbors.length;
+                }, 2000); // Change focus every 2 seconds
+            });
+        </script>
+
+        <webscape-wanderer
+            id="heart-shaped"
+            edge-scale="5"
+            node-scale="0.5"
+            node-shape="../data/heart.obj"
+        ></webscape-wanderer>
+
+        <script type="module">
+            import { randomGraphData } from "webscape-wanderer";
+
+            window.addEventListener("DOMContentLoaded", () => {
+                const heartShapedWanderer =
+                    document.querySelector("#heart-shaped");
+                const graphData = randomGraphData(20, 30); // 20 nodes, 30 edges
+                heartShapedWanderer.graphData = graphData;
+            });
+        </script>
+    </body>
+</html>

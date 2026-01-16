@@ -1,0 +1,7 @@
+o22(omega0)
+o23(omega0)
+function read_omega(filepath: String) : Omega = omega0
+function write_omega(filepath: String) : Omega = omega0
+pres_result = preserve(omega0)
+iso_result = isomorphic(omega0, omega0)
+module Database = struct { ring = 5 }

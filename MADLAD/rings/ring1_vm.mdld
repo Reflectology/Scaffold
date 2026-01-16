@@ -1,0 +1,8 @@
+o29(omega0)
+o30(omega0)
+o31(omega0)
+function vm_init(code: Int) : Omega = omega0
+function vm_step(n: Int) : Omega = step(omega0)
+function vm_run(n: Int) : Omega = iterate(omega0, 100)
+function dispatch_axiom(n: Int) : Omega = omega0
+module VM = struct { ring = 1; stack_size = 1024 }

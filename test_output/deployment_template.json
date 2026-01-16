@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2020-06-01",
+      "name": "reflectology-app-plan",
+      "location": "eastus",
+      "sku": {
+        "name": "B1",
+        "tier": "Basic"
+      },
+      "properties": {
+        "reserved": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2020-06-01",
+      "name": "reflectology-app",
+      "location": "eastus",
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', 'reflectology-app-plan')]",
+        "siteConfig": {
+          "linuxFxVersion": "PYTHON|3.9"
+        }
+      }
+    }
+  ]
+}

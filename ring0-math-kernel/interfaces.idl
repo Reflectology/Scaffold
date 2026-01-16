@@ -1,0 +1,100 @@
+/*
+ * Reflectology Ring Interfaces (Web IDL)
+ * Defines the strict contracts for inter-ring communication via TX-RX.
+ * Rings 0-9 in logical order.
+ */
+
+// Common Data Structures
+dictionary OmegaState {
+    DOMString id;
+    double timestamp;
+    object data;
+    sequence<long> axioms_satisfied;
+    double cost;
+    double entropy;
+    long dimension;
+};
+
+dictionary MathResult {
+    double value;
+    sequence<long> axiom_trace;
+    boolean convergence;
+    double error;
+};
+
+// Ring 0: Kernel Interface (Core Axiom Engine)
+interface Kernel {
+    Promise<OmegaState> applyAxiom(long axiomId, OmegaState state);
+    Promise<OmegaState> applyCommand(long commandId, OmegaState state);
+    Promise<OmegaState> applyInterface(long interfaceId, OmegaState state);
+    Promise<OmegaState> applyPipeline(sequence<long> axiomIds, OmegaState state);
+    Promise<OmegaState> initialize();
+};
+
+// Ring 1: VM Interface (Virtual Machine)
+interface VM {
+    Promise<long> execute(sequence<object> program);
+    Promise<object> dumpState();
+};
+
+// Ring 2: Compiler Interface (MADLAD Compiler)
+interface Compiler {
+    Promise<object> compile(DOMString source);
+    Promise<object> tokenize(DOMString source);
+    Promise<object> parse(DOMString source);
+    Promise<object> optimize(object program);
+};
+
+// Ring 3: Analysis Interface (Mathematical Analysis)
+interface Analysis {
+    Promise<MathResult> bidirectionalBinomial(long n, long k);
+    Promise<MathResult> gamma(double z);
+    Promise<boolean> verifySymmetry(object data);
+};
+
+// Ring 4: Network Interface (Networking & Routing)
+interface Network {
+    Promise<boolean> send(DOMString destination, object message);
+    Promise<object> receive(DOMString source);
+    Promise<boolean> addRoute(DOMString name, DOMString host, long port);
+    Promise<OmegaState> syncOmega(DOMString peer);
+};
+
+// Ring 5: Database Interface (Persistence Layer)
+interface Database {
+    Promise<OmegaState> create(DOMString key, object data);
+    Promise<OmegaState> read(DOMString key);
+    Promise<OmegaState> update(DOMString key, object data);
+    Promise<boolean> delete(DOMString key);
+    Promise<DOMString> beginTransaction();
+    Promise<boolean> commitTransaction(DOMString txId);
+    Promise<boolean> rollbackTransaction(DOMString txId);
+};
+
+// Ring 6: Extension Interface (VS Code Extension)
+interface Extension {
+    Promise<DOMString> visualize(OmegaState state);
+    Promise<object> analyzeCode(DOMString code);
+    Promise<object> executeJS(DOMString code);
+};
+
+// Ring 7: WebUI Interface (Web UI Generation)
+interface WebUI {
+    Promise<DOMString> generateUI(object data);
+    Promise<boolean> startServer(long port);
+    Promise<boolean> stopServer();
+};
+
+// Ring 8: Deployment Interface (Infrastructure & Proofs)
+interface Deployment {
+    Promise<object> generateTemplate(DOMString appName, DOMString location);
+    Promise<boolean> deploy(object template, DOMString resourceGroup);
+    Promise<object> verifyAxiom(long axiomId, DOMString implementation);
+};
+
+// Ring 9: Docs Interface (Documentation & Introspection)
+interface Docs {
+    Promise<object> getAxiom(long axiomId);
+    Promise<object> introspectRing(long ringNumber);
+    Promise<DOMString> generateMarkdown(long ringNumber);
+};

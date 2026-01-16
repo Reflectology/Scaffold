@@ -1,0 +1,69 @@
+{
+  "puml": "@startuml Azure Deployment\n!define AzurePuml https://raw.githubusercontent.com/plantuml-stdlib/Azure-PlantUML/release/2-1/dist\n!includeurl AzurePuml/AzureCommon.puml\n!includeurl AzurePuml/Web/AzureWebApp.puml\n!includeurl AzurePuml/Compute/AzureAppService.puml\n\ntitle Reflectology Azure Deployment\n\nAzureAppService(plan0, \"reflectology-app-plan\", \"App Service Plan\")\nAzureWebApp(app1, \"reflectology-app\", \"Web App\")\nplan0 -down-> app1 : hosts\n@enduml",
+  "omega": {
+    "deployment_type": "azure_arm",
+    "resource_count": 2,
+    "schema_version": "1.0.0.0",
+    "resource_0": {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "reflectology-app-plan",
+      "location": "eastus",
+      "api_version": "2020-06-01"
+    },
+    "resource_1": {
+      "type": "Microsoft.Web/sites",
+      "name": "reflectology-app",
+      "location": "eastus",
+      "api_version": "2020-06-01"
+    }
+  },
+  "graph": {
+    "nodes": [
+      "reflectology-app-plan",
+      "reflectology-app"
+    ],
+    "linkIndexPairs": [
+      1,
+      0
+    ],
+    "nodeData": {
+      "reflectology-app-plan": {
+        "type": "Microsoft.Web/serverfarms"
+      },
+      "reflectology-app": {
+        "type": "Microsoft.Web/sites"
+      }
+    }
+  },
+  "template": {
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+      {
+        "type": "Microsoft.Web/serverfarms",
+        "apiVersion": "2020-06-01",
+        "name": "reflectology-app-plan",
+        "location": "eastus",
+        "sku": {
+          "name": "B1",
+          "tier": "Basic"
+        },
+        "properties": {
+          "reserved": true
+        }
+      },
+      {
+        "type": "Microsoft.Web/sites",
+        "apiVersion": "2020-06-01",
+        "name": "reflectology-app",
+        "location": "eastus",
+        "properties": {
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', 'reflectology-app-plan')]",
+          "siteConfig": {
+            "linuxFxVersion": "PYTHON|3.9"
+          }
+        }
+      }
+    ]
+  }
+}

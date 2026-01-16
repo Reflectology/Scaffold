@@ -1,0 +1,8 @@
+o1(omega0)
+Define title = "MDLD with TikZ"
+Define diagram = tikz(concat(tikzNode("A", "Start", 0, 0), tikzNode("B", "Process", 3, 0), tikzNode("C", "End", 6, 0), tikzEdge("A", "B", "input"), tikzEdge("B", "C", "output")))
+Define body = concat("A simple flowchart:", diagram)
+Define pkgs = texPkgs("tikz", "booktabs")
+Define doc = tex(title, body, pkgs)
+Compute writeFile("tikz_test.tex", doc)
+o40(omega0)

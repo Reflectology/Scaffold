@@ -1,0 +1,6 @@
+o1(omega0)
+Define num = 10
+Define threshold = 5
+Define isGreater = num - threshold
+Compute if isGreater then 100 else 0
+o40(omega0)

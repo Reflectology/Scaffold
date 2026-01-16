@@ -1,0 +1,7 @@
+o11(omega0)
+o12(omega0)
+function tokenize(source: String) : Omega = omega0
+function parse_expr(n: Int) : Omega = omega0
+function emit_bytecode(n: Int) : Omega = omega0
+function compile(source: String) : Omega = omega0
+module Compiler = struct { ring = 2; version = 1 }

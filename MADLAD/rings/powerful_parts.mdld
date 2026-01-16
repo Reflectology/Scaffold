@@ -1,0 +1,17 @@
+o1(omega0)
+Define N = omega
+function factorize(n: Int) : Omega = omega0
+function Q2(n: Int) : Int = 0
+function consecutive_product(n: Int, ell: Int) : Int = 0
+o6(omega0)
+Compute factorize(360)
+Compute Q2(360)
+Compute consecutive_product(10, 3)
+Compute Q2(consecutive_product(10, 3))
+o13(omega0)
+o15(omega0)
+Define test_n = 100
+Define test_ell = 2
+Compute Q2(consecutive_product(test_n, test_ell))
+o37(omega0)
+module PowerfulParts = struct { problem = 1; conjectures = 3; status = 0 }

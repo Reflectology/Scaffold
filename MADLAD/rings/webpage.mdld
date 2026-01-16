@@ -1,0 +1,7 @@
+o1(omega0)
+Define title = "MDLD Generated Page"
+Define body = "This webpage was generated entirely from MDLD code."
+Define page = html(title, body)
+Define filepath = writeFile("output.html", page)
+Compute openBrowser(filepath)
+o40(omega0)

@@ -1,0 +1,12 @@
+@startuml Azure Deployment
+!define AzurePuml https://raw.githubusercontent.com/plantuml-stdlib/Azure-PlantUML/release/2-1/dist
+!includeurl AzurePuml/AzureCommon.puml
+!includeurl AzurePuml/Web/AzureWebApp.puml
+!includeurl AzurePuml/Compute/AzureAppService.puml
+
+title Reflectology Azure Deployment
+
+AzureAppService(plan0, "reflectology-app-plan", "App Service Plan")
+AzureWebApp(app1, "reflectology-app", "Web App")
+plan0 -down-> app1 : hosts
+@enduml
